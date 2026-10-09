@@ -1,0 +1,89 @@
+name: dnscrypt
+
+x-env: &env
+  PLAIN_DNS_PORT: ${PLAIN_DNS_PORT:?}
+  DOT_PORT: ${DOT_PORT:?}
+  DOH_HOST: ${DOH_HOST:?}
+  DOH_PORT: ${DOH_PORT:?}
+
+services:
+  dnscrypt:
+    image: klutchell/dnscrypt-proxy:latest
+    container_name: dnscrypt
+    cap_add:
+      - CAP_NET_BIND_SERVICE
+    volumes:
+      - ./config-dnscrypt:/config
+    networks:
+      default:
+        ipv4_address: 172.30.0.2
+        ipv6_address: fd12:3456:789a::2
+    environment:
+      <<: *env
+    ports:
+      - '${PLAIN_DNS_PORT}:53'
+  opennic:
+    image: klutchell/dnscrypt-proxy:latest
+    container_name: opennic
+    cap_add:
+      - CAP_NET_BIND_SERVICE
+    volumes:
+      - ./config-opennic:/config
+    networks:
+      default:
+        ipv4_address: 172.30.0.3
+        ipv6_address: fd12:3456:789a::3
+  alfis:
+    image: ghcr.io/revertron/alfis:0.10
+    container_name: alfis
+    cap_add:
+      - CAP_NET_BIND_SERVICE
+    volumes:
+      - 'alfis-cache:/var/lib/alfis'
+    networks:
+      default:
+        ipv4_address: 172.30.0.4
+        ipv6_address: fd12:3456:789a::4
+  doh-server:
+    build: ./doh-server
+    container_name: doh
+    networks:
+      default:
+        ipv4_address: 172.30.0.5
+        ipv6_address: fd12:3456:789a::5
+    environment:
+      <<: *env
+    ports:
+      - '${DOH_PORT}:80/tcp'
+    command: "-u 172.30.0.2:53 -l 0.0.0.0:80 -H ${DOH_HOST}"
+  dot-server:
+    image: adguard/dnsproxy:latest
+    container_name: dot
+    networks:
+      default:
+        ipv4_address: 172.30.0.6
+        ipv6_address: fd12:3456:789a::6
+    command:
+      - '--listen=0.0.0.0'
+      - '--tls-port=853'
+      - '--tls-crt=/certs/fullchain.pem'
+      - '--tls-key=/certs/privkey.pem'
+      - '--upstream=172.30.0.2:53'
+      - '--port=0'
+    volumes:
+      - ./certs:/certs:ro
+    ports:
+      - '${DOT_PORT}:853/tcp'
+
+volumes:
+  alfis-cache:
+    
+networks:
+  default:
+    driver: bridge
+    enable_ipv4: true
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+        - subnet: fd12:3456:789a::/64

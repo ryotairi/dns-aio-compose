@@ -1,0 +1,28 @@
+# OpenNIC <https://opennic.org>
+bbs 172.30.0.3
+chan 172.30.0.3
+cyb 172.30.0.3
+dyn 172.30.0.3
+geek 172.30.0.3
+gopher 172.30.0.3
+indy 172.30.0.3
+libre 172.30.0.3
+neo 172.30.0.3
+null 172.30.0.3
+o 172.30.0.3
+oss 172.30.0.3
+oz 172.30.0.3
+parody 172.30.0.3
+pirate 172.30.0.3
+
+# ALFIS <https://alfis.name>
+anon 172.30.0.4
+btn 172.30.0.4
+conf 172.30.0.4
+index 172.30.0.4
+merch 172.30.0.4
+mirror 172.30.0.4
+mob 172.30.0.4
+screen 172.30.0.4
+srv 172.30.0.4
+ygg 172.30.0.4

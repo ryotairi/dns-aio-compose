@@ -1,0 +1,15 @@
+listen_addresses = ['0.0.0.0:53']
+server_names = ['ibksturm', 'libredns']
+cloaking_rules = '/config/cloaking.txt'
+
+block_ipv6 = false
+
+[query_log]
+
+[nx_log]
+
+[sources]
+[sources.'opennic']
+urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/opennic.md', 'https://download.dnscrypt.info/resolvers-list/v3/opennic.md', 'https://cdn.jsdelivr.net/gh/DNSCrypt/dnscrypt-resolvers@master/v3/opennic.md']
+minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+cache_file = 'opennic.md'
