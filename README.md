@@ -68,6 +68,7 @@ cp .env.example .env
 | `PLAIN_DNS_PORT` | `39053` | Host port for plain DNS (mapped to container port 53) |
 | `DOT_PORT` | `39054` | Host port for DNS-over-TLS |
 | `DOH_HOST` | `dns.example.com` | The public hostname of your DoH server (used for HTTPS SNI & Host header) |
+| `DOH_LISTEN_HOST` | `0.0.0.0` | Host address for DNS-over-HTTPS |
 | `DOH_PORT` | `39055` | Host port for DNS-over-HTTPS |
 
 ### 3. Add TLS certificates (for DoT)

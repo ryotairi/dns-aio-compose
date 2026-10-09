@@ -4,6 +4,7 @@ x-env: &env
   PLAIN_DNS_PORT: ${PLAIN_DNS_PORT:?}
   DOT_PORT: ${DOT_PORT:?}
   DOH_HOST: ${DOH_HOST:?}
+  DOH_LISTEN_HOST: ${DOH_LISTEN_HOST:?}
   DOH_PORT: ${DOH_PORT:?}
 
 services:
@@ -55,7 +56,7 @@ services:
       <<: *env
     ports:
       - '${DOH_PORT}:80/tcp'
-    command: "-u 172.30.0.2:53 -l 0.0.0.0:80 -H ${DOH_HOST}"
+    command: "-u 172.30.0.2:53 -l ${DOH_LISTEN_HOST}:80 -H ${DOH_HOST}"
   dot-server:
     image: adguard/dnsproxy:latest
     container_name: dot
