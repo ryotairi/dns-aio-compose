@@ -3,6 +3,7 @@ bbs 172.30.0.3
 chan 172.30.0.3
 cyb 172.30.0.3
 dyn 172.30.0.3
+epic 172.30.0.3
 geek 172.30.0.3
 gopher 172.30.0.3
 indy 172.30.0.3
@@ -14,6 +15,10 @@ oss 172.30.0.3
 oz 172.30.0.3
 parody 172.30.0.3
 pirate 172.30.0.3
+
+# OpenNIC technical zones
+opennic.glue 172.30.0.3
+dns.opennic.glue 172.30.0.3
 
 # ALFIS <https://alfis.name>
 anon 172.30.0.4
