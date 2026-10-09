@@ -1,6 +1,7 @@
 listen_addresses = ['0.0.0.0:53']
 server_names = ['ibksturm', 'libredns']
 cloaking_rules = '/config/cloaking.txt'
+forwarding_rules = '/config/forwarding.txt'
 
 block_ipv6 = false
 
