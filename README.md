@@ -36,7 +36,7 @@ On startup, the DNSCrypt container concatenates all rule fragments from `config-
 
 ## Custom rules (forwarding & cloaking)
 
-Rules are stored as separate files in two directories. **Never edit the base files** - create a `user_*.txt` file instead (e.g. `user_2.txt`). Files matching `user_*` are gitignored, so your personal rules stay out of the repo.
+Rules are stored as separate files in two directories. **Never edit the base files** - create a `*.user.txt` file instead (e.g. `2.user.txt`). Files matching `*.user.txt` are gitignored, so your personal rules stay out of the repo.
 
 ### Forwarding rules - `config-dnscrypt/forwarding/`
 
