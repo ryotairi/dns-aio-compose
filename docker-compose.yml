@@ -1,6 +1,7 @@
 name: dnscrypt
 
 x-env: &env
+  PLAIN_DNS_HOST: ${PLAIN_DNS_HOST:?}
   PLAIN_DNS_PORT: ${PLAIN_DNS_PORT:?}
   DOT_PORT: ${DOT_PORT:?}
   DOH_HOST: ${DOH_HOST:?}
@@ -33,7 +34,7 @@ services:
     environment:
       <<: *env
     ports:
-      - '${PLAIN_DNS_PORT}:53'
+      - '${PLAIN_DNS_HOST}:${PLAIN_DNS_PORT}:53'
   opennic:
     image: klutchell/dnscrypt-proxy:latest
     container_name: opennic
