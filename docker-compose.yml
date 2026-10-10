@@ -13,9 +13,8 @@ services:
     volumes:
       - ./config-dnscrypt:/config
     command: >
-      sh -c 'touch /config/cloaking.txt /config/forwarding.txt;
-        cat /config/cloaking/*.txt >> /config/cloaking.txt   2>/dev/null || true;
-        cat /config/forwarding/*.txt >> /config/forwarding.txt 2>/dev/null || true'
+      sh -c 'cat /config/cloaking/*.txt > /config/cloaking.txt   2>/dev/null || true;
+        cat /config/forwarding/*.txt > /config/forwarding.txt 2>/dev/null || true'
   
   dnscrypt:
     image: klutchell/dnscrypt-proxy:latest
