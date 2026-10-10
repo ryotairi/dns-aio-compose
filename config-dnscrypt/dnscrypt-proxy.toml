@@ -2,8 +2,8 @@ listen_addresses = ['0.0.0.0:53']
 
 block_ipv6 = false
 
-cloaking_rules = '/config/cloaking.txt'
-forwarding_rules = '/config/forwarding.txt'
+cloaking_rules = '/tmp/cloaking.txt'
+forwarding_rules = '/tmp/forwarding.txt'
 
 [query_log]
 

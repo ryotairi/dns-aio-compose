@@ -23,6 +23,7 @@ services:
       <<: *env
     ports:
       - '${PLAIN_DNS_PORT}:53'
+    command: ['/bin/sh', '/config/start.sh']
   opennic:
     image: klutchell/dnscrypt-proxy:latest
     container_name: opennic

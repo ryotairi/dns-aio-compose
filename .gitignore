@@ -1,3 +1,5 @@
 /.env
 /certs/*.pem
-/config-opennic/forwarding.txt
+
+/config-dnscrypt/cloaking/user_*
+/config-dnscrypt/forwarding/user_*

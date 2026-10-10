@@ -1,0 +1,11 @@
+# ALFIS <https://alfis.name>
+anon 172.30.0.4
+btn 172.30.0.4
+conf 172.30.0.4
+index 172.30.0.4
+merch 172.30.0.4
+mirror 172.30.0.4
+mob 172.30.0.4
+screen 172.30.0.4
+srv 172.30.0.4
+ygg 172.30.0.4
