@@ -3,3 +3,6 @@
 
 /config-dnscrypt/cloaking/*.user.txt
 /config-dnscrypt/forwarding/*.user.txt
+
+/config-dnscrypt/cloaking.txt
+/config-dnscrypt/forwarding.txt
