@@ -34,7 +34,8 @@ services:
     environment:
       <<: *env
     ports:
-      - '${PLAIN_DNS_HOST}:${PLAIN_DNS_PORT}:53'
+      - '${PLAIN_DNS_HOST}:${PLAIN_DNS_PORT}:53/tcp'
+      - '${PLAIN_DNS_HOST}:${PLAIN_DNS_PORT}:53/udp'
   opennic:
     image: klutchell/dnscrypt-proxy:latest
     container_name: opennic
